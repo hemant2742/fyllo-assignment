@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { MONTHS, STATES } from "../../constants"
+
 import "./Bigchart.css"
 
 import {
@@ -22,62 +24,9 @@ function Bigchart({
   subtitle,
   defaultValue,
 }) {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ]
 
-  const states = [
-    "Andaman & Nicobar",
-    "Andhra Pradesh",
-    "Arunachal Pradesh",
-    "Assam",
-    "Bihar",
-    "Chandigarh",
-    "Chattishgarh",
-    "Dadra & Nagar Haveli",
-    "Delhi",
-    "Goa",
-    "Gujarat",
-    "Harayana",
-    "Himachal Pradesh",
-    "Jammu & Kashmir",
-    "Jharkhand",
-    "Karnataka",
-    "Kerala",
-    "Madhya Pradesh",
-    "Maharastra",
-    "Manipur",
-    "Megalaya",
-    "Mizoram",
-    "Nagaland",
-    "Orissa",
-    "Pondicherry",
-    "Punjab",
-    "Rajasthan",
-    "Tamil Nadu",
-    "Tripura",
-    "Telangana",
-    "Uttar Pradesh",
-    "Uttaranchal",
-    "West Bengal",
-    "Daman & Diu",
-    "Lakshadweep",
-    "Sikkim",
-  ]
-
-  const [statevalue, setStatevalue] = useState(states[0])
-  const [monthvalue, setMonthvalue] = useState(months[0])
+  const [statevalue, setStatevalue] = useState(STATES[0])
+  const [monthvalue, setMonthvalue] = useState(MONTHS[0])
 
   function OnchangeSetstatevalue(e) {
     setStatevalue(e.target.value)
@@ -104,7 +53,7 @@ function Bigchart({
       <div className="bigchartSelect">
         <h5>Month</h5>
         <select onChange={OnchangeSetmonthvalue}>
-          {months.map((e) => {
+          {MONTHS.map((e) => {
             return (
               <option key={e} value={e}>
                 {e}
@@ -114,7 +63,7 @@ function Bigchart({
         </select>
         <h5>State</h5>
         <select onChange={OnchangeSetstatevalue}>
-          {states.map((e) => {
+          {STATES.map((e) => {
             return (
               <option key={e} value={e}>
                 {e}
@@ -132,7 +81,7 @@ function Bigchart({
           height={300}
           data={chartData}
           margin={{
-            top: 5,
+            top: 10,
             right: 30,
             left: 20,
             bottom: 5,

@@ -7,7 +7,6 @@ import Piechart from "../Piechart"
 function Featured() {
   return (
     <div className="featured">
-      
       <div className="featuredpiechart">
         <Piechart
           data={data}

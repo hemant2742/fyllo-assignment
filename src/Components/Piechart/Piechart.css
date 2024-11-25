@@ -5,5 +5,83 @@
 }
 
 .piechartTitle {
+  font-size: 24px;
+  text-align: center;
   margin-bottom: 20px;
+}
+
+.piechart-legend {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.legend {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.legend-color {
+  width: 15px;
+  height: 15px;
+  margin-right: 8px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+.legend-name {
+  font-size: 14px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .piechart {
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .piechartTitle {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .piechart-legend {
+    margin-top: 10px;
+  }
+
+  .legend {
+    margin-right: 10px;
+  }
+
+  .legend-name {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .piechart {
+    padding: 5px;
+  }
+
+  .piechartTitle {
+    font-size: 18px;
+  }
+
+  .legend {
+    margin-right: 5px;
+  }
+
+  .legend-name {
+    font-size: 10px;
+  }
+
+  .legend-color {
+    width: 12px;
+    height: 12px;
+  }
 }

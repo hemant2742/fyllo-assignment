@@ -32,3 +32,12 @@
   color: red;
   cursor: pointer;
 }
+
+.productList_heading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  margin: 20px;
+  font-weight: 600;
+}

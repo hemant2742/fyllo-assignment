@@ -1,8 +1,8 @@
 import { PieChart, Pie, Cell, Tooltip } from "recharts"
-import "./Piechart.css"
 import { getPieData } from "../../utils.js"
+import {PRODUCT_COLOR_MAPPING} from "../../constants.js"
 
-const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042", "#FF0000"]
+import "./Piechart.css"
 
 const RADIAN = Math.PI / 180
 const renderCustomizedLabel = ({
@@ -30,7 +30,6 @@ const renderCustomizedLabel = ({
     </text>
   )
 }
-
 function Piechart({ data, title, dataKey }) {
   let chartData = getPieData(data, dataKey)
   return (
@@ -46,12 +45,29 @@ function Piechart({ data, title, dataKey }) {
           outerRadius={170}
           dataKey="value"
         >
-          {data.map((entry, index) => (
-            <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+          {chartData.map((entry, index) => (
+            <Cell
+              key={`cell-${index}`}
+              fill={PRODUCT_COLOR_MAPPING[entry.name] || "#cccccc"}
+            />
           ))}
         </Pie>
         <Tooltip />
       </PieChart>
+      <div className="piechart-legend">
+        {chartData.map((entry, index) => (
+          <div key={index} className="legend">
+            <div
+              className="legend-color"
+              style={{
+                backgroundColor:
+                  PRODUCT_COLOR_MAPPING[entry.name] || "#cccccc",
+              }}
+            ></div>
+            <div className="legend-name">{entry.name}</div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }
